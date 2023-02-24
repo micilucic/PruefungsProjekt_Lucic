@@ -1,0 +1,23 @@
+﻿<Window x:Class="PruefungsProjekt_Lucic.AddDogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PruefungsProjekt_Lucic"
+        mc:Ignorable="d"
+        Title="AddDogWindow" Height="450" Width="800">
+    <StackPanel>
+        <UniformGrid Columns="9" Rows="1">
+            <TextBox Text="{Binding NewBuddy.Name}"/>
+            <TextBox Text="{Binding NewBuddy.Owner}"/>
+            <TextBox Text="{Binding NewBuddy.Age}"/>
+            <TextBox Text="{Binding NewBuddy.Gender}"/>
+            <TextBox Text="{Binding NewBuddy.DogType}"/>
+            <TextBox Text="{Binding NewBuddy.DogDescription}"/>
+            <TextBox Text="{Binding NewBuddy.City}"/>
+            <TextBox Text="{Binding NewBuddy.MeetingPlace}"/>
+            <DatePicker SelectedDate="{Binding NewBuddy.HoursAvailable}"/>
+            <Button Click="Button_New_Dog_Click">Produkt hinzufügen</Button>
+        </UniformGrid>
+    </StackPanel>
+</Window>
