@@ -5,33 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PruefungsProjekt_Lucic"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="NEW BEST BUDDIES" Height="450" Width="800">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" Background="RosyBrown">
             <MenuItem Header="Registration">
-                <MenuItem Header="Add new buddy" Click="MenuItemNewDog_Click"/>
+                <MenuItem Header="Add new dog" Click="MenuItemNewDog_Click"/>
                 <MenuItem Header="Update information" Click="MenuItemUpdateDog_Click"/>
-                <MenuItem Header="Delete buddy" Click="MenuItemDeleteDog_Click"/>
+                <MenuItem Header="Delete a dog from the list" Click="MenuItemDeleteDog_Click"/>
             </MenuItem>
         </Menu>
-        
+        <TextBlock DockPanel.Dock="Top" Height="70" Background="LightGray" TextWrapping="Wrap" TextAlignment="Center" Padding="28">
+            NEW BEST BUDDIES - a unique app for all proud dog owners who are bored of going to take walkies by themselves. 
+        </TextBlock>
         <ListBox ItemsSource="{Binding Dogs}"
-                 SelectedItem="{Binding ChosenDog}">
+                 SelectedItem="{Binding ChosenDog}"
+                 DockPanel.Dock="Bottom">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                    <TextBox Text="{Binding Name}"/>
-                    <TextBox Text="{Binding Owner}"/>
-                    <TextBox Text="{Binding Age}"/>
-                    <TextBox Text="{Binding Gender}"/>
-                    <TextBox Text="{Binding DogType}"/>
-                    <TextBox Text="{Binding DogDescription}"/>
-                    <TextBox Text="{Binding City}"/>
-                    <TextBox Text="{Binding MeetingPlace}"/>
-                    <DatePicker SelectedDate="{Binding HoursAvailable}"/>
+                        <TextBox Text="{Binding Name}"/>
+                        <TextBox Text="{Binding Owner}"/>
+                        <TextBox Text="{Binding Age}"/>
+                        <TextBox Text="{Binding Gender}"/>
+                        <TextBox Text="{Binding DogType}"/>
+                        <TextBox Text="{Binding DogDescription}"/>
+                        <TextBox Text="{Binding City}"/>
+                        <TextBox Text="{Binding MeetingPlace}"/>
+                        <DatePicker SelectedDate="{Binding HoursAvailable}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="{Binding StatusBarCount}" TextAlignment="Center"></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </DockPanel>
 </Window>

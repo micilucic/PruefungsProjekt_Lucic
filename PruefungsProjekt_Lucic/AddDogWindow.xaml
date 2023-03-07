@@ -6,18 +6,25 @@
         xmlns:local="clr-namespace:PruefungsProjekt_Lucic"
         mc:Ignorable="d"
         Title="AddDogWindow" Height="450" Width="800">
-    <StackPanel>
-        <UniformGrid Columns="9" Rows="1">
+    <StackPanel Width="Auto" HorizontalAlignment="Center">
+        <Label>Name of your dog</Label>
             <TextBox Text="{Binding NewBuddy.Name}"/>
+        <Label>Your name</Label>
             <TextBox Text="{Binding NewBuddy.Owner}"/>
+        <Label>Age</Label>
             <TextBox Text="{Binding NewBuddy.Age}"/>
+        <Label>Gender</Label>
             <TextBox Text="{Binding NewBuddy.Gender}"/>
+        <Label>Dog breed</Label>
             <TextBox Text="{Binding NewBuddy.DogType}"/>
+        <Label>Describe your dog</Label>
             <TextBox Text="{Binding NewBuddy.DogDescription}"/>
+        <Label>City</Label>
             <TextBox Text="{Binding NewBuddy.City}"/>
+        <Label>Meeting Place</Label>
             <TextBox Text="{Binding NewBuddy.MeetingPlace}"/>
+        <Label>Hoe much time do you have? (hrs)</Label>
             <DatePicker SelectedDate="{Binding NewBuddy.HoursAvailable}"/>
-            <Button Click="Button_New_Dog_Click">Produkt hinzufügen</Button>
-        </UniformGrid>
+        <Button Click="Button_New_Dog_Click">Produkt hinzufügen</Button>
     </StackPanel>
 </Window>
