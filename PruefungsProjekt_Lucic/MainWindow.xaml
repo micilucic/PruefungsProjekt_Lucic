@@ -1,45 +1,73 @@
-﻿<Window x:Class="PruefungsProjekt_Lucic.MainWindow"
+﻿<Window Background="Beige"  x:Class="PruefungsProjekt_Lucic.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PruefungsProjekt_Lucic"
         mc:Ignorable="d"
-        Title="NEW BEST BUDDIES" Height="450" Width="800">
+        Title="NEW BEST BUDDIES" Height="950" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="RosyBrown">
-            <MenuItem Header="Registration">
-                <MenuItem Header="Add new dog" Click="MenuItemNewDog_Click"/>
-                <MenuItem Header="Update information" Click="MenuItemUpdateDog_Click"/>
-                <MenuItem Header="Delete a dog from the list" Click="MenuItemDeleteDog_Click"/>
-            </MenuItem>
+            <MenuItem Header="Add new dog" Click="MenuItemNewDog_Click"/>
+            <MenuItem Header="Update information" Click="MenuItemUpdateDog_Click"/>
+            <MenuItem Header="Delete a dog from the list" Click="MenuItemDeleteDog_Click"/>
         </Menu>
-        <TextBlock DockPanel.Dock="Top" Height="70" Background="LightGray" TextWrapping="Wrap" TextAlignment="Center" Padding="28">
-            NEW BEST BUDDIES - a unique app for all proud dog owners who are bored of going to take walkies by themselves. 
-        </TextBlock>
-        <ListBox ItemsSource="{Binding Dogs}"
-                 SelectedItem="{Binding ChosenDog}"
-                 DockPanel.Dock="Bottom">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBox Text="{Binding Name}"/>
-                        <TextBox Text="{Binding Owner}"/>
-                        <TextBox Text="{Binding Age}"/>
-                        <TextBox Text="{Binding Gender}"/>
-                        <TextBox Text="{Binding DogType}"/>
-                        <TextBox Text="{Binding DogDescription}"/>
-                        <TextBox Text="{Binding City}"/>
-                        <TextBox Text="{Binding MeetingPlace}"/>
-                        <DatePicker SelectedDate="{Binding HoursAvailable}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock Text="{Binding StatusBarCount}" TextAlignment="Center"></TextBlock>
             </StatusBarItem>
         </StatusBar>
+        <TextBlock DockPanel.Dock="Top" Height="70" Background="LightGray" TextWrapping="Wrap" TextAlignment="Center" Padding="28">
+            NEW BEST BUDDIES - a unique app for all proud dog owners who are bored of going to take walkies by themselves.
+        </TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Left">
+             <Label>Find a buddy by breed type</Label>
+        <TextBox Text="{Binding searchText}" Width="400"/>
+        <Button Click="ButtonSuchen_Click">Search</Button>
+        </TextBlock>
+        <Grid DockPanel.Dock="Left" Width="200">
+            <ListBox ItemsSource="{Binding Dogs}"
+                 SelectedItem="{Binding ChosenDog}" Grid.ColumnSpan="2" Margin="0,0,0,-0.2">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label>Name of the doggie</Label>
+                            <TextBox Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <StackPanel DockPanel.Dock="Right" Margin="30">
+            <TextBlock TextAlignment="Center">More Information</TextBlock>
+            <TextBlock></TextBlock>
+            <Label>Name of the owner</Label>
+            <TextBox Text="{Binding ChosenDog.Owner}"/>
+            <TextBlock ></TextBlock>
+            <Label>Age of the doggie</Label>
+            <TextBox Text="{Binding ChosenDog.Age}"/>
+            <TextBlock ></TextBlock>
+            <Label>Age of the doggie</Label>
+            <TextBox Text="{Binding ChosenDog.Gender}"/>
+            <TextBlock ></TextBlock>
+            <Label>Breed type</Label>
+            <TextBox Text="{Binding ChosenDog.BreedType}"/>
+            <TextBlock ></TextBlock>
+            <Label>Description of the doggie</Label>
+            <TextBox Text="{Binding ChosenDog.DogDescription}"/>
+            <TextBlock ></TextBlock>
+            <Label>City</Label>
+            <TextBox Text="{Binding ChosenDog.City}"/>
+            <TextBlock ></TextBlock>
+            <Label>Meeting place</Label>
+            <TextBox Text="{Binding ChosenDog.MeetingPlace}"/>
+            <TextBlock ></TextBlock>
+            <Label>Day for a walkie</Label>
+            <DatePicker SelectedDate="{Binding ChosenDog.DateAvailable}"/>
+            <TextBlock ></TextBlock>
+            <Label>Hours available</Label>
+            <TextBox Text="{Binding ChosenDog.HoursAvailable}"/>
+
+        </StackPanel>
     </DockPanel>
 </Window>

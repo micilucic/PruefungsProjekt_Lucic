@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PruefungsProjekt_Lucic.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,9 @@ namespace PruefungsProjekt_Lucic
 
         private void UpdateDog_Click(object sender, RoutedEventArgs e)
         {
-
+            DogViewModel vm = this.DataContext as DogViewModel;
+            vm.UpdateDog();
+            this.Close();
         }
     }
 }

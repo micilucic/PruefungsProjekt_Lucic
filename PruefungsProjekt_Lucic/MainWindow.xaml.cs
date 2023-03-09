@@ -30,14 +30,15 @@ namespace PruefungsProjekt_Lucic
 
             vm.NewBuddy = new Models.Dog()
             {
-                Name = "Max",
-                Owner = "Milica",
-                Age = 6,
-                City = "Graz",
-                DogType = "Beagle",
-                Gender = "Male",
-                DogDescription = "Extremly friendly doggy that loves other dogs and running in the open field.",
-                HoursAvailable = new DateTime(2022, 2, 24)
+                Name =  " ",
+                Owner = " ",
+                Age = 0,
+                City = " ",
+                BreedType = " ",
+                Gender = " ",
+                DogDescription = " ",
+                DateAvailable = DateTime.Now,
+                HoursAvailable = 1
             };
 
             vm.ShowDogsFromDB();
@@ -49,19 +50,27 @@ namespace PruefungsProjekt_Lucic
             AddDogWindow newAddDogWindow = new AddDogWindow();
             DogViewModel vm = this.DataContext as DogViewModel;
             newAddDogWindow.DataContext = vm;
-            vm.NewBuddy.Name = "Bitte geben SIe den Namen ein";
             newAddDogWindow.ShowDialog();
         }
 
         private void MenuItemUpdateDog_Click(object sender, RoutedEventArgs e)
         {
-           
+            UpdateDogWindow updateDogWindow = new UpdateDogWindow();
+            DogViewModel vm = this.DataContext as DogViewModel;
+            updateDogWindow.DataContext = vm;
+            updateDogWindow.ShowDialog();
         }
 
         private void MenuItemDeleteDog_Click(object sender, RoutedEventArgs e)
         {
             DogViewModel vm = this.DataContext as DogViewModel;
             vm.DeleteDog();
+        }
+
+        private void ButtonSuchen_Click(object sender, RoutedEventArgs e)
+        {
+            DogViewModel vm = this.DataContext as DogViewModel;
+            vm.filterDogType();
         }
     }
 }

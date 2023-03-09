@@ -5,19 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PruefungsProjekt_Lucic"
         mc:Ignorable="d"
-        Title="UpdateDogWindow" Height="450" Width="800">
-    <StackPanel>
-        <UniformGrid Columns="9" Rows="1">
-            <TextBox Text="{Binding NewBuddy.Name}"/>
-            <TextBox Text="{Binding NewBuddy.Owner}"/>
-            <TextBox Text="{Binding NewBuddy.Age}"/>
-            <TextBox Text="{Binding NewBuddy.Gender}"/>
-            <TextBox Text="{Binding NewBuddy.DogType}"/>
-            <TextBox Text="{Binding NewBuddy.DogDescription}"/>
-            <TextBox Text="{Binding NewBuddy.City}"/>
-            <TextBox Text="{Binding NewBuddy.MeetingPlace}"/>
-            <DatePicker SelectedDate="{Binding NewBuddy.HoursAvailable}"/>
-            <Button Click="UpdateDog_Click">Add dog</Button>
-        </UniformGrid>
+        Title="UpdateDogWindow" Height="650" Width="800">
+    <StackPanel Width="Auto">
+        <StackPanel.Background>
+            <ImageBrush ImageSource="doggiePaws.jpg" Opacity="0.3"></ImageBrush>
+        </StackPanel.Background>
+        <StackPanel Width="Auto" Margin="40" HorizontalAlignment="Center" Background="AliceBlue">
+            <Label>Name of your dog</Label>
+            <TextBox Text="{Binding ChosenDog.Name}"/>
+            <Label>Your name</Label>
+            <TextBox Text="{Binding ChosenDog.Owner}"/>
+            <Label>Age</Label>
+            <TextBox Text="{Binding ChosenDog.Age}"/>
+            <Label>Gender</Label>
+            <TextBox Text="{Binding ChosenDog.Gender}"/>
+            <Label>Dog breed</Label>
+            <TextBox Text="{Binding ChosenDog.BreedType}"/>
+            <Label>Describe your dog</Label>
+            <TextBox Text="{Binding ChosenDog.DogDescription}"/>
+            <Label>City</Label>
+            <TextBox Text="{Binding ChosenDog.City}"/>
+            <Label>Meeting Place</Label>
+            <TextBox Text="{Binding ChosenDog.MeetingPlace}"/>
+            <Label>Please choose day</Label>
+            <DatePicker SelectedDate="{Binding ChosenDog.DateAvailable}"/>
+            <Label>How much time do you have? (hrs)</Label>
+            <TextBox Text="{Binding ChosenDog.HoursAvailable}"/>
+            <TextBlock Height="10"></TextBlock>
+            <Button Click="UpdateDog_Click" Background="PaleVioletRed" Height="30">Update this doggie</Button>
+        </StackPanel>
     </StackPanel>
 </Window>

@@ -59,13 +59,13 @@ namespace PruefungsProjekt_Lucic.Models
             }
         }
 
-        private string _dogType;
+        private string _breedType;
 
-        public string DogType
+        public string BreedType
         {
-            get { return _dogType; }
-            set { _dogType = value;
-                RaisePropertyChange("DogType");
+            get { return _breedType; }
+            set { _breedType = value;
+                RaisePropertyChange("BreedType");
              }
         }
 
@@ -110,17 +110,27 @@ namespace PruefungsProjekt_Lucic.Models
             }
         }
 
+        private int _hoursAvailable;
 
-        private DateTime _hoursAvailable;
-
-        public DateTime HoursAvailable
+        public int HoursAvailable
         {
             get { return _hoursAvailable; }
-            set { _hoursAvailable = value;
-                RaisePropertyChange("HoursAvailable");
+            set { _hoursAvailable = value; }
+        }
+
+
+        private DateTime _dateAvailable;
+
+        public DateTime DateAvailable
+        {
+            get { return _dateAvailable; }
+            set { _dateAvailable = value;
+                RaisePropertyChange("DateAvailable");
             }
       
         }
+
+
 
     }
 }

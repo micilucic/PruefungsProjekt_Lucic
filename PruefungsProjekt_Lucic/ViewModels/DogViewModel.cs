@@ -51,10 +51,11 @@ namespace PruefungsProjekt_Lucic.ViewModels
                 Owner = NewBuddy.Owner,
                 Age = NewBuddy.Age,
                 City = NewBuddy.City,
-                DogType = NewBuddy.DogType,
+                BreedType = NewBuddy.BreedType,
                 DogDescription = NewBuddy.DogDescription,
                 MeetingPlace = NewBuddy.MeetingPlace,
                 Gender = NewBuddy.Gender,
+                DateAvailable = NewBuddy.DateAvailable,
                 HoursAvailable = NewBuddy.HoursAvailable
             };
 
@@ -79,13 +80,17 @@ namespace PruefungsProjekt_Lucic.ViewModels
 
         public void filterDogType()
         {
+            if(searchText != null)
+            {
             Dogs = new ObservableCollection<Dog>();
-            foreach (Dog dog in _ctx.Dogs.Where(p => p.DogType.Contains(searchText)))
+            foreach (Dog dog in _ctx.Dogs.Where(p => p.BreedType.Contains(searchText)))
             {
                 Dogs.Add(dog);
             }
             RaisePropertyChanged("Dogs");
+            RaisePropertyChanged("BreedType");
             RaisePropertyChanged("StatusBarCount");
+            }
 
         }
 
@@ -107,14 +112,18 @@ namespace PruefungsProjekt_Lucic.ViewModels
                 if (Dogs.Count == 0)
                 {
                     return "There are no available buddies at the moment.";
+                } else if (Dogs.Count == 1)
+                {
+                    return $"There is one available buddy at the moment.";
+                } else { 
+                return $"There are {Dogs.Count} dogs in need of buddies!";
                 }
-                return $"There are {Dogs.Count} dogs in need of buddies!"; }
+            }
         }
 
         public void UpdateDog()
         {
             var dogToUpdate = _ctx.Dogs.Find(ChosenDog.DogID);
-
             _ctx.SaveChanges();
             
         }
